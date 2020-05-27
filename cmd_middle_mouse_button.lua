@@ -1,12 +1,12 @@
 function widget:GetInfo()
     return {
-        name = "Middle mouse button",
-        desc = "A widget for avoid some camera behaviour after middle mouse button is pressed",
+        name = "Disable middle mouse click above the map",
+        desc = "A widget to avoid camera like blocked or super fast, atfer an unmaintained middle click above the map",
         author = "",
-        version = "1",
-        date = "Published february 2020",
+        version = "2",
+        date = "Published may 2020",
         license = "",
-        layer = 90050,
+        layer = 90051,
         enabled = true,
     }
 end
