@@ -8,6 +8,15 @@ This widget should avoid camera blocked with only few capacity to move when midd
 Should resolve mines which sometimes didn't explode with BA 9 (from years). This widget give a self-d command for mines when an enemy is near, except if enemy speed > 120, (for example the jeffys or fleas or planes) or if the mine is put on wait
 Widget not needed to fix mines for BA 10.24 or BA test cause it seemed the mines were already fixed for ba10.24. And I didn't saw an option to put mines hold fire for BA 10.24, so this widget should not work for BA 10.24.
 
+## Purpose of cmd_selfd_mines_for_some_units.lua:
+Auto set target for mercuries and screamers to certains planes hierarchically (to better avoid a liche attack for example).
+By order :
+1.liches/krows
+2.bombers/seabombers, torpedo bombers
+3.radars t2 planes
+4.brawlers
+5.construction aircraft
+
 ## Installation:
 For made theses widgets to works, 
 - if you are under windows, you should put them in C:\Users\your_current_account_name\Documents\My Games\Spring\LuaUI\Widgets.
