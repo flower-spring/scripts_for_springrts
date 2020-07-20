@@ -6,7 +6,7 @@
 function widget:GetInfo()
     return {
         name = "Auto self-d mines except for fast units",
-        desc = "Should resolve mines that sometimes which sometimes don't explode with BA 9 (from years). This widget give a self-d command for mines when an enemy is near, except if enemy speed > 120, (for example the jeffys or fleas or planes) or if the mine is put on wait",
+        desc = "Should resolve mines which sometimes didn't explode with BA 9 (from years). This widget give a self-d command for mines when an enemy is near, except if enemy speed > 120, (for example the jeffys or fleas or planes) or if the mine is put on wait",
         author = "",
         version = "v1",
         date = "published 20 july 2020",
