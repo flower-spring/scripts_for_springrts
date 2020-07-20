@@ -22,4 +22,4 @@ For made theses widgets to works,
 - if you are under linux, I'm unsure, but I think you should put it in ~./spring/LuaUI/Widgets
 
 You should see the widgets ingame in the list after pressed the F11 key.
-Widget should appears after the widgets wrote with an asterisk at the end.
+New widget(s) should appear(s) after the widgets wrote with an asterisk at the end.
