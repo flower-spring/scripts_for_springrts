@@ -5,7 +5,7 @@ This widget should avoid camera blocked with only few capacity to move when midd
 (This behaviour of "blocked camera" could occur with overhead camera mode or fps camera mode or rot overhead camera mode, and if middle mouse button is not holded.)
 
 ## Purpose of cmd_selfd_mines_for_some_units.lua:
-Should resolve mines that sometimes which sometimes don't explode with BA 9 (from years). This widget give a self-d command for mines when an enemy is near, except if enemy speed > 120, (for example the jeffys or fleas or planes) or if the mine is put on wait
+Should resolve mines which sometimes didn't explode with BA 9 (from years). This widget give a self-d command for mines when an enemy is near, except if enemy speed > 120, (for example the jeffys or fleas or planes) or if the mine is put on wait
 Widget not needed to fix mines for BA 10.24 or BA test cause it seemed the mines were already fixed for ba10.24. And I didn't saw an option to put mines hold fire for BA 10.24, so this widget should not work for BA 10.24.
 
 ## Installation:
