@@ -1,4 +1,4 @@
-# Widgets for springrts
+# 3 widgets for springrts
 
 ## Purpose of cmd_middle_mouse_button.lua:
 This widget should avoid camera blocked with only few capacity to move when middle mouse button is clicked with overhead camera mode or fps camera mode or rot overhead camera mode, and if middle mouse button is not holded. But by enabling this widget, it should disable for you the possibility, at least in overhead camera mode, to navigate on map by holding middle mouse button.
@@ -16,7 +16,7 @@ By order :
 4.brawlers
 5.construction aircraft
 
-## Installation:
+# Installation of these widgets under windows / linux:
 For made theses widgets to works, 
 - if you are under windows, you should put them in C:\Users\your_current_account_name\Documents\My Games\Spring\LuaUI\Widgets.
 - if you are under linux, I'm unsure, but I think you should put it in ~./spring/LuaUI/Widgets
