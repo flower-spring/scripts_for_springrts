@@ -9,14 +9,15 @@ It should resolve mines which sometimes didn't explode with BA 9 (from years). T
 
 Widget not really needed to fix mines for BA 10.24 or BA test cause it seemed the mines were already fixed for ba10.24. And I didn't saw an option to put mines on wait for BA 10.24 (while it was possible for ba 9* or 11), so this widget should not completly work for BA 10.24. 
 
-I tested impact of this widget for fps and didn't saw significative impact. And with widget profiler, percent was about 0 for total percentage of running time spent in luaui callins, and about 1kB/s for 300 armmine3 total rate of mem allocation by luaui callins. 
+I tested impact of this widget for fps and didn't saw significative impact. And with widget profiler, percent was about 0 for total percentage of running time spent in luaui callins, and about 1kB/s for 300 armmine3 total rate of mem allocation by luaui callins.  
   
-    
+  
+  
 
 ## Purpose of cmd_set_specific_targets_for_mercuries_and_screamers.lua:
 Auto set target for mercuries and screamers to certains planes hierarchically (to better avoid a liche attack for example).
 By order :
-1.liches/krows  
+1.liches/krows\
 2.bombers/seabombers, torpedo bombers  
 3.radars t2 planes  
 4.brawlers  
