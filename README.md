@@ -6,7 +6,7 @@ This widget should avoid camera blocked with only few capacity to move when midd
 &nbsp;  
 
 ## Purpose of cmd_selfd_mines_for_some_units.lua:
-It should resolve mines which sometimes didn't explode with BA 9 (from years). This widget give a self-d command for mines when an enemy is near, except if enemy speed > 120, (for example the jeffys or fleas or planes) or if the mine is put on wait.
+This widget give a self-d command for mines when an enemy is near, except if enemy speed > 120, (for example the jeffys or fleas or planes) or if the mine is put on wait. This widget should resolve mines which sometimes didn't explode with BA 9 (from years).
 
 Widget not really needed to fix mines for BA 10.24 or BA test cause it seemed the mines were already fixed for ba10.24. And I didn't saw an option to put mines on wait for BA 10.24 (while it was possible for ba 9* or 11), so this widget should not completly work for BA 10.24. 
 
