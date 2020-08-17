@@ -6,11 +6,17 @@ This widget should avoid camera blocked with only few capacity to move when midd
 &nbsp;  
 
 ## Purpose of cmd_selfd_mines_for_some_units.lua:
-This widget give a self-d command for mines when an enemy is near, except if enemy speed > 120, (for example the jeffys or fleas or planes) or if the mine is put on wait. This widget should resolve mines which sometimes didn't explode with BA 9 (from years).
+This widget give a self-d command for mines when an enemy is near a mine, except if enemy speed > 120, (for example the jeffys, fleas or planes have speed > 120) or if enemy speed <120 and the mine has a wait command.
 
-Widget not really needed to fix mines for BA 10.24 or BA test cause it seemed the mines were already fixed for ba10.24. And I didn't saw an option to put mines on wait for BA 10.24 (while it was possible for ba 9* or 11), so this widget should not completly work for BA 10.24. 
+The mines should still explode if an enemy fire on the mine after an enemy is just upon the mine or really near the mine, the mine uncloak.
 
-I tested impact of this widget for fps and didn't saw significative impact. And with widget profiler, percent was about 0 for total percentage of running time spent in luaui callins, and about 1kB/s for 300 armmine3 total rate of mem allocation by luaui callins.  
+Widget not really needed to fix mines for BA 10.24 or BA test (BA test = beyond all reason mod) cause it seemed the mines were already fixed for ba10.24 and byar. And I didn't saw an option to put mines on wait for BA 10.24 (while it was possible for ba 9* or 11), so this widget should not completly work for BA 10.24. 
+
+Widget tested for a few weeks. No bug found.
+
+(A link to springrts forum topic about mines bug : https://springrts.com/phpbb/viewtopic.php?f=44&t=41088&p=593857#p593857 )
+
+(I tested impact of this widget for fps and didn't saw significative impact. According to widget profiler widget, percent was about 0 for total percentage of running time spent in luaui callins, and about 1kB/s for 300 armmine3 total rate of mem allocation by luaui callins. Defense range was something like 300kB/s at start.)
 &nbsp;  
 
 ## Purpose of cmd_set_specific_targets_for_mercuries_and_screamers.lua:
