@@ -5,7 +5,7 @@
 --------------------------------------------------------------------------------
 function widget:GetInfo()
     return {
-        name = "Auto self-d the mines except for fast units",
+        name = "Auto self-d the mines except with fast units",
         desc = "Should resolve mines which sometimes didn't explode with BA 9 (from years). This widget give a self-d command for mines when an enemy is near, except if enemy speed > 120, (for example the jeffys or fleas or planes) or except if the mine is put on wait",
         author = "tulipe",
         version = "v1",
