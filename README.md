@@ -33,6 +33,8 @@ By order :
 3.radars t2 planes  
 4.brawlers  
 5.construction aircraft  
+
+New version v3 4 oct 2020: if stockpile == 5/5, screamer and/or mercury is (are) on "fire at will". Widget impact screamer/mercury only if projectile stockpile of the screamer/mercury is < 5.
 &nbsp;  
 
 # Installation of these widgets under windows / linux:
