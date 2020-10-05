@@ -23,6 +23,9 @@ Widget tested for a few weeks. No bug found.
 (A link to springrts forum topic about mines bug : https://springrts.com/phpbb/viewtopic.php?f=44&t=41088&p=593857#p593857 )
 
 (I tested impact of this widget for fps and didn't saw significative impact. According to widget profiler widget, percent was about 0 for total percentage of running time spent in luaui callins, and about 1kB/s for 300 armmine3 total rate of mem allocation by luaui callins. Defense range was something like 300kB/s at start.)
+
+--- another version added 5 october 2020 : crawling mines included
+
 &nbsp;  
 
 ## Purpose of cmd_set_specific_targets_for_mercuries_and_screamers.lua:
