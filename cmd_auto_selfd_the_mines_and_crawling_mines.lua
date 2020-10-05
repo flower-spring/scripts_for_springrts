@@ -55,7 +55,7 @@ end
 
 function widget:UnitCreated(unitID, unitDefID, unitTeam, builderID)
     local ud = UnitDefs[unitDefID]
-    if unitTeam == Spring.GetMyTeamID() and (ud ~= nil and (ud.name == "armmine1" or ud.name == "armmine2" or ud.name == "armmine3" or ud.name == "cormine1" or ud.name == "cormine2" or ud.name == "cormine3" or ud.name == "armfmine3" or ud.name == "corfmine3" or ud.name == "cormine4" or name == "armvader" or name == "corroach" or name == "corsktl")) then
+    if unitTeam == Spring.GetMyTeamID() and (ud ~= nil and (ud.name == "armmine1" or ud.name == "armmine2" or ud.name == "armmine3" or ud.name == "cormine1" or ud.name == "cormine2" or ud.name == "cormine3" or ud.name == "armfmine3" or ud.name == "corfmine3" or ud.name == "cormine4" or ud.name == "armvader" or ud.name == "corroach" or ud.name == "corsktl")) then
         mines[unitID] = unitDefID
         spGiveOrderToUnit(unitID, CMD_FIRE_STATE, { 0 }, {})
     end
