@@ -13,6 +13,8 @@ end
 
 ---For disable some targets for screamers and mercuries, you could just comment the line(s) with the unit name you want disable: for example to prevent t2 arm builder from being targeted, change the line "[UnitDefNames.armaca.id] = 5, -- t2 arm builder" to "--[UnitDefNames.armaca.id] = 5, -- t2 arm builder" (just add "--").
 
+--- v3 version : if stockpile == 5/5, screamer and/or mercury is (are) on "fire at will". Widget impact screamer/mercury only if projectile stockpile of the screamer/mercury is < 5.
+
 local GetUnitPosition = Spring.GetUnitPosition
 local GetUnitDefID = Spring.GetUnitDefID
 local GetMyPlayerID = Spring.GetMyPlayerID
