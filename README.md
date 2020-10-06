@@ -24,7 +24,7 @@ Widget tested for a few weeks. No bug found.
 
 (I tested impact of this widget for fps and didn't saw significative impact. According to widget profiler widget, percent was about 0 for total percentage of running time spent in luaui callins, and about 1kB/s for 300 armmine3 total rate of mem allocation by luaui callins. Defense range was something like 300kB/s at start.)
 
---- another version added 5 october 2020 : crawling mines included
+--- another file added 5 october 2020 : crawling mines included
 
 &nbsp;  
 
@@ -38,12 +38,16 @@ By order :
 5.construction aircraft  
 
 New version v3 4 oct 2020: if stockpile == 5/5, screamer and/or mercury is (are) on "fire at will". Widget impact screamer/mercury only if projectile stockpile of the screamer/mercury is < 5.
-&nbsp;  
 
-# Installation of these widgets under windows / linux:
-For made theses widgets to works, 
-- if you are under windows, you should put them in C:\Users\your_current_account_name\Documents\My Games\Spring\LuaUI\Widgets.
-- if you are under linux, I'm unsure, but I think you should put it in ~./spring/LuaUI/Widgets
 
+&nbsp;
+
+# Installation of these widgets on a standard computer
+## Windows
+If you are under windows, you should put them in C:\Users\your_current_account_name\Documents\My Games\Spring\LuaUI\Widgets.
+## Linux
+If you are under linux, I'm unsure, but I think you should put downloaded widget(s) in ~./spring/LuaUI/Widgets directory.
+
+## Verification of the installation
 You should see the widgets ingame in the list after pressed the F11 key.
 New widget(s) should appear(s) after the widgets wrote with an asterisk at the end.
