@@ -43,10 +43,10 @@ New version v3 4 oct 2020: if stockpile == 5/5, screamer and/or mercury is (are)
 &nbsp;
 
 # Installation of these widgets on a standard computer
-## Windows
-If you are under windows, you should put them in C:\Users\your_current_account_name\Documents\My Games\Spring\LuaUI\Widgets.
-## Linux
-If you are under linux, I'm unsure, but I think you should put downloaded widget(s) in ~./spring/LuaUI/Widgets directory.
+## Installation under windows
+If you are under windows, you should put them in C:\Users\your_current_account_name\Documents\My Games\Spring\LuaUI\Widgets
+## Installation under linux
+If you are under linux, I'm unsure, but I think you should put downloaded widget(s) in ~./spring/LuaUI/Widgets
 
 ## Verification of the installation
 You should see the widgets ingame in the list after pressed the F11 key.
