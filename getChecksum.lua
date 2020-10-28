@@ -19,7 +19,7 @@ function widget:KeyPress(key, modifier, isRepeat)
         for k,v in pairs(archives) do
             if k==1 then
                 local _,archiveChecksum  = VFS.GetArchiveChecksum(v)
-                Spring.Echo("archiveChecksum :", archiveChecksum)
+                ("---------------------archiveChecksum for archive " .. archives[k]..": ".. archiveChecksum.."----")
             end
         end
     end
