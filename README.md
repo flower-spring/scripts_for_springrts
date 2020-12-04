@@ -1,4 +1,4 @@
-# 5 widgets for springrts
+# 6 widgets for springrts
 
 ## Purpose of cmd_middle_mouse_button.lua:
 This widget should avoid camera blocked with only few capacity to move when middle mouse button is clicked with overhead camera mode or fps camera mode or rot overhead camera mode, and if middle mouse button is not holded. But by enabling this widget, it should disable for you the possibility, at least in overhead camera mode, to navigate on map by holding middle mouse button.
@@ -39,6 +39,12 @@ By order :
 
 New version v3 4 oct 2020: if stockpile == 5/5, screamer and/or mercury is (are) on "fire at will". Widget impact screamer/mercury only if projectile stockpile of the screamer/mercury is < 5.
 
+
+&nbsp;
+
+## Purpose of unit_smart_area_reclaim+.lua:
+Extra ability to suck only metal wrecks not resurrectable if you start drag above a non resurrectable wreck.
+And only resurrectable wrecks if you start reclaim above a resurrectable wreck.
 
 &nbsp;
 
