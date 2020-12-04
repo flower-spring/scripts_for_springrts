@@ -1,7 +1,7 @@
 --------------------------------------------------------------------------------
 --------------------------------------------------------------------------------
 --
---  file:    unit_smart_area_reclaim.lua
+--  file:    unit_smart_area_reclaim+.lua
 --  brief:   Area reclaims only metal or energy depending on the center feature
 --  original author: Ryan Hileman
 --
