@@ -1,7 +1,7 @@
 function widget:GetInfo()
     return {
         name = "Ctrl+x",
-        desc = "Select all units visibles with same unitDefID of previous selection, with ctr+x",
+        desc = "Select all units visibles with same unitDefID of previous selection, with ctrl+x",
         author = "flower",
         date = "29 dec 2020",
         license = "",
