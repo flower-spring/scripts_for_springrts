@@ -18,6 +18,7 @@ local spGetVisibleUnits = Spring.GetVisibleUnits
 local spGetGameSeconds = Spring.GetGameSeconds
 local frameAtGameStart = { "true" }
 local spSendCommands = Spring.SendCommands
+local spGetGameFrame = Spring.GetGameFrame
 
 include("keysym.h.lua")
 
