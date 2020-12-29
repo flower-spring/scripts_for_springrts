@@ -44,23 +44,23 @@ function widget:KeyPress(key, modifier, isRepeat)
         local all_units = spGetAllUnits()
         local visible_units = spGetVisibleUnits()
         local selected_unitID = spGetSelectedUnits()
-        local team_selected = {}
+        local units_selected = {}
         if selected_unitID[1] ~= nil and (visible_units[1] == nil) then
             for k, v in pairs(selected_unitID) do
-                team_selected[k] = v
+                units_selected[k] = v
             end
-            spSelectUnitArray(team_selected)
+            spSelectUnitArray(units_selected)
         else
             for k, unitID in pairs(visible_units) do
                 local unitDefID_of_each_unit = spGetUnitDefID(unitID)
                 for _, unitIDselected in pairs(selected_unitID) do
                     local unitDefID_units_selected = spGetUnitDefID(unitIDselected)
                     if unitDefID_of_each_unit == unitDefID_units_selected then
-                        team_selected[k] = unitID
+                        units_selected[k] = unitID
                     end
                 end
             end
-            spSelectUnitArray(team_selected)
+            spSelectUnitArray(units_selected)
         end
     end
 end
