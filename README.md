@@ -1,6 +1,9 @@
 # 7 widgets for springrts
 
 ## Purpose of cmd_middle_mouse_button.lua:
+
+<img src="Images_for_scripts_for_springrts/mouse-160032_1280_200.png" alt="mouse-160032_1280" style="zoom: 80%;" />
+
 This widget should avoid camera blocked with only few capacity to move when middle mouse button is clicked with overhead camera mode or fps camera mode or rot overhead camera mode, and if middle mouse button is not holded. But by enabling this widget, it should disable for you the possibility, at least in overhead camera mode, to navigate on map by holding middle mouse button.
 (This behaviour of "blocked camera" could occur with overhead camera mode or fps camera mode or rot overhead camera mode, and if middle mouse button is not holded.)
 &nbsp;  
@@ -29,6 +32,9 @@ Widget tested for a few weeks. No bug found.
 &nbsp;  
 
 ## Purpose of cmd_set_specific_targets_for_mercuries_and_screamers.lua:
+
+<img src="Images_for_scripts_for_springrts/image_set_target_for_mercury_liche_widget.png" alt="image_set_target_for_mercury_liche_widget" style="zoom:25%;" />
+
 Auto set target for mercuries and screamers to certains planes hierarchically (to better avoid a liche attack for example).
 By order :
 1.liches/krows
@@ -46,7 +52,15 @@ New version v3 4 oct 2020: if stockpile == 5/5, screamer and/or mercury is (are)
 Extra ability to suck only metal wrecks not resurrectable if you start drag above a non resurrectable wreck.
 And only resurrectable wrecks if you start reclaim above a resurrectable wreck.
 
-&nbsp;
+
+
+&nbsp;<img src="Images_for_scripts_for_springrts/screenshot_for_smart_area_reclaim.png" alt="screenshot_for_smart_area_reclaim" style="zoom: 33%;" />
+
+On the illustration image you could see 3 rezzers with 3 differents orders :
+From the left to the right :
+-one rezzer with a reclaim command started above the ground.
+-one rezzer with a reclaim command started above a resurrectable unit.
+-one rezzer with a reclaim command started above a not resurrectable unit.
 
 # Installation of these widgets on a standard computer
 ## Installation under windows
