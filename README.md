@@ -20,7 +20,9 @@ This widget should avoid camera blocked with only few capacity to move when midd
 
 &nbsp;  
 
-## Purpose of cmd_selfd_mines_for_some_units.lua:
+## cmd_selfd_mines_for_some_units.lua:
+### Purpose
+
 For months, or rather years I saw some mines sometimes did not explode with BA 9* (or 11). This widget should resolve this.
 
 This widget give a self-d command for the mines when an enemy is near a mine, except if enemy speed > 120, (for example the jeffys, fleas or planes have speed > 120) or except if enemy speed <120 and the mine has a wait command.
@@ -39,17 +41,20 @@ Widget tested for a few weeks. No bug found.
 
 (I tested impact of this widget for fps and didn't saw significative impact. According to widget profiler widget, percent was about 0 for total percentage of running time spent in luaui callins, and about 1kB/s for 300 armmine3 total rate of mem allocation by luaui callins. Defense range was something like 300kB/s at start.)
 
-Link of this mines widget : https://github.com/flower-spring/scripts_for_springrts/blob/master/cmd_auto_selfd_the_mines.lua
+#### Link of this mines widget : https://github.com/flower-spring/scripts_for_springrts/blob/master/cmd_auto_selfd_the_mines.lua
 
 --- another version added 5 october 2020 : crawling mines included
-Link : https://github.com/flower-spring/scripts_for_springrts/blob/master/cmd_auto_selfd_the_mines_and_crawling_mines.lua
+
+#### Link : https://github.com/flower-spring/scripts_for_springrts/blob/master/cmd_auto_selfd_the_mines_and_crawling_mines.lua
 
 
 &nbsp;  
 
-## Purpose of cmd_set_specific_targets_for_mercuries_and_screamers.lua:
+## cmd_set_specific_targets_for_mercuries_and_screamers.lua:
 
 <img src="Images_for_scripts_for_springrts/image_set_target_for_mercury_liche_widget.png" alt="image_set_target_for_mercury_liche_widget" width="200" />
+
+### Purpose:
 
 Auto set target for mercuries and screamers to certains planes hierarchically (to better avoid a liche attack for example).
 By order :
@@ -59,16 +64,18 @@ By order :
 4.brawlers  
 5.construction aircraft  
 
-First version link : https://github.com/flower-spring/scripts_for_springrts/blob/master/cmd_set_specific_targets_for_mercuries_and_screamers.lua
+#### First version link : https://github.com/flower-spring/scripts_for_springrts/blob/master/cmd_set_specific_targets_for_mercuries_and_screamers.lua
 
 New version v3 4 oct 2020: if stockpile == 5/5, screamer and/or mercury is (are) on "fire at will". Widget impact screamer/mercury only if projectile stockpile of the screamer/mercury is < 5.
 
-Version v3 : https://github.com/flower-spring/scripts_for_springrts/blob/master/cmd_set_specific_targets_for_mercuries_and_screamers_v3.lua
+#### Version v3 : https://github.com/flower-spring/scripts_for_springrts/blob/master/cmd_set_specific_targets_for_mercuries_and_screamers_v3.lua
 
 
 &nbsp;
 
-## Purpose of unit_smart_area_reclaim+.lua:
+## unit_smart_area_reclaim+.lua:
+### Purpose
+
 Extra ability to suck only metal wrecks not resurrectable if you start drag above a non resurrectable wreck.
 And only resurrectable wrecks if you start reclaim above a resurrectable wreck.
 
@@ -82,15 +89,17 @@ From the left to the right :
 - one rezzer with a reclaim command started above a resurrectable unit.
 - one rezzer with a reclaim command started above a not resurrectable unit.
 
-Link : https://github.com/flower-spring/scripts_for_springrts/blob/master/unit_smart_area_reclaim%2B.lua
+#### Link : https://github.com/flower-spring/scripts_for_springrts/blob/master/unit_smart_area_reclaim%2B.lua
 
 
 &nbsp;
 
-## Purpose of cmd_ctrl-x_select_all_units_visibles_of_previous_selection.lua:
-Wrote for a player. For bind ctrl+x : select same units visbles of previous selected units.
+## cmd_ctrl-x_select_all_units_visibles_of_previous_selection.lua:
+### Purpose
 
-Link : https://github.com/flower-spring/scripts_for_springrts/blob/master/cmd_ctrl-x_select_all_units_visibles_of_previous_selection.lua
+For bind ctrl+x : select same units visbles of previous selected units. Wrote for a player.
+
+#### Link : https://github.com/flower-spring/scripts_for_springrts/blob/master/cmd_ctrl-x_select_all_units_visibles_of_previous_selection.lua
 
 
 &nbsp;  
