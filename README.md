@@ -67,12 +67,13 @@ Widget tested for a few weeks. No bug found.
 ### Purpose:
 
 Auto set target for mercuries and screamers to certains planes hierarchically (to better avoid a liche attack for example).
-By order mercuries/screamers units should auto aim : &nbsp;
-1.liches/krows
-2.bombers/seabombers, torpedo bombers  
-3.radars t2 planes  
-4.brawlers  
-5.construction aircraft  
+By order mercuries/screamers units should auto aim :
+
+1. liches/krows
+2. bombers/seabombers, torpedo bombers  
+3. radars t2 planes  
+4. brawlers  
+5. construction aircraft  
 
 #### First version link : https://github.com/flower-spring/scripts_for_springrts/blob/master/cmd_set_specific_targets_for_mercuries_and_screamers.lua
 
