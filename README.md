@@ -1,10 +1,20 @@
 # 5 widgets for springrts (2 of these 5 have different versions. 7 widgets in total)
 
+![christmas-2933030_1280](Images_for_scripts_for_springrts/Images_for_scripts_for_springrts\christmas-2933030_1280.jpg)
+
 Original game : https://fr.wikipedia.org/wiki/Total_Annihilation
 
-Spring RTS Engine : https://springrts.com/
+1 engine, multiples mods.
 
-![spring-logo-header-small](Images_for_scripts_for_springrts/spring-logo-header-small.png)
+
+| Spring RTS Engine : https://springrts.com/ | ![spring-logo-header-small](Images_for_scripts_for_springrts/spring-logo-header-small.png) |
+| ------------------------------------------ | ------------------------------------------------------------ |
+| Mod looking like total annihilation        | https://balancedannihilation.com/                            |
+| Another mod                                | https://www.beyondallreason.info/                            |
+|                                            |                                                              |
+
+
+
 
 ## cmd_middle_mouse_button.lua:
 
