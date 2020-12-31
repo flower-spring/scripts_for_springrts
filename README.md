@@ -1,4 +1,4 @@
-# 5 widgets for springrts (some have different versions)
+# 5 widgets for springrts (2 of these 5 have different versions. 7 widgets in total)
 
 Original game : https://fr.wikipedia.org/wiki/Total_Annihilation
 
@@ -39,6 +39,8 @@ Widget tested for a few weeks. No bug found.
 Link of this mines widget : https://github.com/flower-spring/scripts_for_springrts/blob/master/cmd_auto_selfd_the_mines.lua
 
 --- another version added 5 october 2020 : crawling mines included
+Link : https://github.com/flower-spring/scripts_for_springrts/blob/master/cmd_auto_selfd_the_mines_and_crawling_mines.lua
+
 
 &nbsp;  
 
@@ -54,9 +56,11 @@ By order :
 4.brawlers  
 5.construction aircraft  
 
+First version link : https://github.com/flower-spring/scripts_for_springrts/blob/master/cmd_set_specific_targets_for_mercuries_and_screamers.lua
+
 New version v3 4 oct 2020: if stockpile == 5/5, screamer and/or mercury is (are) on "fire at will". Widget impact screamer/mercury only if projectile stockpile of the screamer/mercury is < 5.
 
-https://github.com/flower-spring/scripts_for_springrts/blob/master/cmd_set_specific_targets_for_mercuries_and_screamers_v3.lua
+Version v3 : https://github.com/flower-spring/scripts_for_springrts/blob/master/cmd_set_specific_targets_for_mercuries_and_screamers_v3.lua
 
 
 &nbsp;
@@ -75,12 +79,18 @@ From the left to the right :
 - one rezzer with a reclaim command started above a resurrectable unit.
 - one rezzer with a reclaim command started above a not resurrectable unit.
 
+Link : https://github.com/flower-spring/scripts_for_springrts/blob/master/unit_smart_area_reclaim%2B.lua
+
 
 &nbsp;
 
 ## Purpose of cmd_ctrl-x_select_all_units_visibles_of_previous_selection.lua:
 Wrote for a player. For bind ctrl+x : select same units visbles of previous selected units.
 
+Link : https://github.com/flower-spring/scripts_for_springrts/blob/master/cmd_ctrl-x_select_all_units_visibles_of_previous_selection.lua
+
+
+&nbsp;  
 
 # Installation of these widgets on a standard computer
 ## Installation under windows
