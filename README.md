@@ -33,7 +33,7 @@ Widget tested for a few weeks. No bug found.
 
 ## Purpose of cmd_set_specific_targets_for_mercuries_and_screamers.lua:
 
-<img src="Images_for_scripts_for_springrts/image_set_target_for_mercury_liche_widget.png" alt="image_set_target_for_mercury_liche_widget" style="zoom:25%;" />
+<img src="Images_for_scripts_for_springrts/image_set_target_for_mercury_liche_widget.png" alt="image_set_target_for_mercury_liche_widget" width="200" />
 
 Auto set target for mercuries and screamers to certains planes hierarchically (to better avoid a liche attack for example).
 By order :
@@ -54,7 +54,7 @@ And only resurrectable wrecks if you start reclaim above a resurrectable wreck.
 
 
 
-&nbsp;<img src="Images_for_scripts_for_springrts/screenshot_for_smart_area_reclaim.png" alt="screenshot_for_smart_area_reclaim" style="zoom: 33%;" />
+&nbsp;<img src="Images_for_scripts_for_springrts/screenshot_for_smart_area_reclaim.png" alt="screenshot_for_smart_area_reclaim" width="200" />
 
 On the illustration image you could see 3 rezzers with 3 differents orders :
 From the left to the right :
