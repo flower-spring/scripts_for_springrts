@@ -6,13 +6,16 @@ Spring RTS Engine : https://springrts.com/
 
 ![spring-logo-header-small](Images_for_scripts_for_springrts/spring-logo-header-small.png)
 
-## Purpose of cmd_middle_mouse_button.lua:
+## cmd_middle_mouse_button.lua:
 
 <img src="Images_for_scripts_for_springrts/mouse-160032_1280_200.png" alt="mouse-160032_1280" style="zoom: 80%;" />
 
+### Purpose
+
 This widget should avoid camera blocked with only few capacity to move when middle mouse button is clicked with overhead camera mode or fps camera mode or rot overhead camera mode, and if middle mouse button is not holded. But by enabling this widget, it should disable for you the possibility, at least in overhead camera mode, to navigate on map by holding middle mouse button.
 (This behaviour of "blocked camera" could occur with overhead camera mode or fps camera mode or rot overhead camera mode, and if middle mouse button is not holded.)
-Widget link : https://github.com/flower-spring/scripts_for_springrts/blob/master/cmd_middle_mouse_button.lua
+
+### Widget link : https://github.com/flower-spring/scripts_for_springrts/blob/master/cmd_middle_mouse_button.lua
 
 
 &nbsp;  
