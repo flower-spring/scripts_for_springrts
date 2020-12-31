@@ -1,6 +1,6 @@
 # 5 widgets for springrts (2 of these 5 have different versions. 7 widgets in total)
 
-![christmas-2933030_1280](Images_for_scripts_for_springrts/Images_for_scripts_for_springrts\christmas-2933030_1280.jpg)
+![christmas-2933030_1280](Images_for_scripts_for_springrts/Images_for_scripts_for_springrts/christmas-2933030_1280.jpg)
 
 Original game : https://fr.wikipedia.org/wiki/Total_Annihilation
 
