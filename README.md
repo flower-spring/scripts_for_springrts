@@ -1,4 +1,10 @@
-# 7 widgets for springrts
+# 5 widgets for springrts (some have different versions)
+
+Original game : https://fr.wikipedia.org/wiki/Total_Annihilation
+
+Spring RTS Engine : https://springrts.com/
+
+![spring-logo-header-small](Images_for_scripts_for_springrts/spring-logo-header-small.png)
 
 ## Purpose of cmd_middle_mouse_button.lua:
 
@@ -6,6 +12,9 @@
 
 This widget should avoid camera blocked with only few capacity to move when middle mouse button is clicked with overhead camera mode or fps camera mode or rot overhead camera mode, and if middle mouse button is not holded. But by enabling this widget, it should disable for you the possibility, at least in overhead camera mode, to navigate on map by holding middle mouse button.
 (This behaviour of "blocked camera" could occur with overhead camera mode or fps camera mode or rot overhead camera mode, and if middle mouse button is not holded.)
+Widget link : https://github.com/flower-spring/scripts_for_springrts/blob/master/cmd_middle_mouse_button.lua
+
+
 &nbsp;  
 
 ## Purpose of cmd_selfd_mines_for_some_units.lua:
@@ -27,7 +36,9 @@ Widget tested for a few weeks. No bug found.
 
 (I tested impact of this widget for fps and didn't saw significative impact. According to widget profiler widget, percent was about 0 for total percentage of running time spent in luaui callins, and about 1kB/s for 300 armmine3 total rate of mem allocation by luaui callins. Defense range was something like 300kB/s at start.)
 
---- another file added 5 october 2020 : crawling mines included
+Link of this mines widget : https://github.com/flower-spring/scripts_for_springrts/blob/master/cmd_auto_selfd_the_mines.lua
+
+--- another version added 5 october 2020 : crawling mines included
 
 &nbsp;  
 
@@ -45,6 +56,8 @@ By order :
 
 New version v3 4 oct 2020: if stockpile == 5/5, screamer and/or mercury is (are) on "fire at will". Widget impact screamer/mercury only if projectile stockpile of the screamer/mercury is < 5.
 
+https://github.com/flower-spring/scripts_for_springrts/blob/master/cmd_set_specific_targets_for_mercuries_and_screamers_v3.lua
+
 
 &nbsp;
 
@@ -56,11 +69,18 @@ And only resurrectable wrecks if you start reclaim above a resurrectable wreck.
 
 &nbsp;<img src="Images_for_scripts_for_springrts/screenshot_for_smart_area_reclaim.png" alt="screenshot_for_smart_area_reclaim" width="200" />
 
-On the illustration image you could see 3 rezzers with 3 differents orders :
+On the illustration image above you could see 3 rezzers with 3 differents orders :
 From the left to the right :
--one rezzer with a reclaim command started above the ground.
--one rezzer with a reclaim command started above a resurrectable unit.
--one rezzer with a reclaim command started above a not resurrectable unit.
+- one rezzer with a reclaim command started above the ground.
+- one rezzer with a reclaim command started above a resurrectable unit.
+- one rezzer with a reclaim command started above a not resurrectable unit.
+
+
+&nbsp;
+
+## Purpose of cmd_ctrl-x_select_all_units_visibles_of_previous_selection.lua:
+Wrote for a player. For bind ctrl+x : select same units visbles of previous selected units.
+
 
 # Installation of these widgets on a standard computer
 ## Installation under windows
