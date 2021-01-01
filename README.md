@@ -11,7 +11,6 @@ Original game : https://fr.wikipedia.org/wiki/Total_Annihilation
 | ------------------------------------------------------------ | :----------------------------------------------------------- |
 | Mod looking like total annihilation https://balancedannihilation.com/ | <img src="Images_for_scripts_for_springrts/balanced_annihilation_image.png" alt="balanced_annihilation_image.png" style="zoom: 50%;" /> |
 | Another mod https://www.beyondallreason.info/                | <img src="Images_for_scripts_for_springrts/bar_logo.png" alt="bar_logo.png" style="zoom: 50%;" /> |
-|                                                              |                                                              |
 
 
 
