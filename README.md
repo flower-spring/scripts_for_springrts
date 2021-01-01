@@ -7,11 +7,11 @@ Original game : https://fr.wikipedia.org/wiki/Total_Annihilation
 1 engine, multiples mods.
 
 
-| Spring RTS Engine : https://springrts.com/ | ![spring-logo-header-small](Images_for_scripts_for_springrts/spring-logo-header-small.png) |
-| ------------------------------------------ | ------------------------------------------------------------ |
-| Mod looking like total annihilation        | https://balancedannihilation.com/                            |
-| Another mod                                | https://www.beyondallreason.info/                            |
-|                                            |                                                              |
+| Spring RTS Engine : https://springrts.com/                   | ![spring-logo-header-small](Images_for_scripts_for_springrts/spring-logo-header-small.png) |
+| ------------------------------------------------------------ | :----------------------------------------------------------: |
+| Mod looking like total annihilation https://balancedannihilation.com/ | <img src="Images_for_scripts_for_springrts/balanced_annihilation_image.png" alt="balanced_annihilation_image.png" style="zoom: 15%;" class="center;" /> |
+| Another mod https://www.beyondallreason.info/                |                                                              |
+|                                                              |                                                              |
 
 
 
