@@ -74,6 +74,8 @@ By order mercuries/screamers units should auto aim :
 4. brawlers  
 5. construction aircraft  
 
+One major purpose of this widget is to avoid loose screamers/mercuries ammunition on fighters planes when some bombers or other huge planes are coming.
+
 #### First version link : https://github.com/flower-spring/scripts_for_springrts/blob/master/cmd_set_specific_targets_for_mercuries_and_screamers.lua
 
 New version v3 4 oct 2020: if stockpile == 5/5, screamer and/or mercury is (are) on "fire at will". Widget impact screamer/mercury only if projectile stockpile of the screamer/mercury is < 5.
