@@ -15,6 +15,10 @@ Original game : https://fr.wikipedia.org/wiki/Total_Annihilation
 
 
 
+
+# Widgets
+
+
 ## cmd_middle_mouse_button.lua:
 
 <img src="Images_for_scripts_for_springrts/mouse-160032_1280_200.png" alt="mouse-160032_1280" style="zoom: 80%;" />
