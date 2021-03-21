@@ -2,7 +2,7 @@
 
 ![japanese-cherry-trees-2168858](Images_for_scripts_for_springrts/japanese-cherry-trees-2168858.png)
 
-Original game : https://fr.wikipedia.org/wiki/Total_Annihilation
+Original game : https://fr.wikipedia.org/wiki/Total_Annihilation (1997)
 
 1 engine, multiples mods.
 
