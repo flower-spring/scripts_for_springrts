@@ -1,6 +1,6 @@
 # 5 widgets for springrts (2 of these 5 have different versions. 7 widgets in total)
 
-![japanese-cherry-trees-2168858](Images_for_scripts_for_springrts/japanese-cherry-trees-2168858.png)
+![figurative-5301719_1920_resized](Images_for_scripts_for_springrts/figurative-5301719_1920_resized.jpg)
 
 Original game : https://fr.wikipedia.org/wiki/Total_Annihilation (1997)
 
