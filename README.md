@@ -109,7 +109,7 @@ From the left to the right :
 
 #### New version: 2 august 2021 , ctrl key added: 
 
-Youtube link video :  https://youtu.be/6FX8xjT6dhg
+Youtube link video :  https://youtu.be/i9SBThSTIlw
 &nbsp;
 Please disable original widget smart area reclaim if you use smart area reclaim+.
 &nbsp;
