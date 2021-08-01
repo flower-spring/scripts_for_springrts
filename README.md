@@ -111,18 +111,18 @@ From the left to the right :
 How to use:
 -quicker : hold ctrl +reclaim command to reclaim only non resurrectable things : rocks and/or units wrecks
 -start hold a reclaim command above a not resurectable wreck and drag your mouse, to reclaim only non resurectable things.
-&nbsp;
+&nbsp;  
 One of the interests of this widget is that sometimes there is a lot of debris some that you just want to resure and others only reclaim. With this widget, you do not need to click on each of the units debris that you would only like to reclaim.
-&nbsp;
+&nbsp;  
 Youtube link video :  https://youtu.be/i9SBThSTIlw
-&nbsp;
+&nbsp;  
 Please disable original widget smart area reclaim if you use smart area reclaim+.
-&nbsp;
+&nbsp;  
 Maybe this widget could crash. Please inform on discord or on springfiles, if it crash.
 
 #### Link : https://github.com/flower-spring/scripts_for_springrts/blob/master/cmd_smart_area_reclaim%2B.lua
 
-&nbsp;
+&nbsp;  
 
 ## cmd_ctrl-x_select_all_units_visibles_of_previous_selection.lua:
 ### Purpose
