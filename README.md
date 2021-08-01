@@ -109,11 +109,21 @@ From the left to the right :
 
 #### New version: 2 august 2021 , ctrl key added: 
 How to use:
--Fastest method : hold ctrl +reclaim command to reclaim only non resurrectable things : rocks and/or units wrecks
 &nbsp;  
--Slower method : start hold a reclaim command above a not resurectable wreck and drag your mouse, to reclaim only non resurectable things.
+-Fastest method : 
+&nbsp;  
+hold ctrl +reclaim command to reclaim only non resurrectable things : rocks and/or units wrecks
+&nbsp;  
+-Slower method : 
+&nbsp;  
+start hold a reclaim command above a not resurectable wreck and drag your mouse, to reclaim only non resurectable things.
 &nbsp;  
 One of the interests of this widget is that sometimes there is a lot of debris some that you just want to resure and others only reclaim. With this widget, you do not need to click on each of the units debris that you would only like to reclaim.
+&nbsp;  
+With the original widget if you started reclaim above a rock and drag your mouse, it reclaimed every metal things.
+Problem fixed compared to the original version : 
+&nbsp;  
+Now it don't send your rezzers reclaim something impossible in sea or in land : for example land rezzers don't go reclaim something too deep in sea. And rezzers boats don't have a command to suck something in land, wich could happen with the original smart area reclaim version.
 &nbsp;  
 Youtube link video :  https://youtu.be/i9SBThSTIlw
 &nbsp;  
