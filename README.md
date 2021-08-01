@@ -89,7 +89,7 @@ New version v3 4 oct 2020: if stockpile == 5/5, screamer and/or mercury is (are)
 
 &nbsp;
 
-## unit_smart_area_reclaim+.lua:
+## cmd_smart_area_reclaim+.lua:
 ### Purpose
 
 Extra ability to suck only metal wrecks not resurrectable if you start drag above a non resurrectable wreck.
@@ -105,8 +105,13 @@ From the left to the right :
 - one rezzer with a reclaim command started above a resurrectable unit.
 - one rezzer with a reclaim command started above a not resurrectable unit.
 
-#### Link : https://github.com/flower-spring/scripts_for_springrts/blob/master/unit_smart_area_reclaim%2B.lua
 
+
+#### New version: 2 august 2021 , ctrl key added: 
+
+Youtube link video :  https://youtu.be/6FX8xjT6dhg
+Please disable original widget smart area reclaim if you use smart area reclaim+.
+Maybe this widget could crash. Please inform on discord or on springfiles, if it crash.
 
 &nbsp;
 
