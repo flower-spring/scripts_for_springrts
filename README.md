@@ -110,8 +110,11 @@ From the left to the right :
 #### New version: 2 august 2021 , ctrl key added: 
 
 Youtube link video :  https://youtu.be/6FX8xjT6dhg
+&nbsp;
 Please disable original widget smart area reclaim if you use smart area reclaim+.
+&nbsp;
 Maybe this widget could crash. Please inform on discord or on springfiles, if it crash.
+#### Link : https://github.com/flower-spring/scripts_for_springrts/blob/master/cmd_smart_area_reclaim%2B.lua
 
 &nbsp;
 
