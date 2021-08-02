@@ -92,7 +92,7 @@ New version v3 4 oct 2020: if stockpile == 5/5, screamer and/or mercury is (are)
 ## cmd_smart_area_reclaim+.lua:
 ### Purpose
 
-Extra ability to suck only metal wrecks not resurrectable if you start drag above a non resurrectable wreck.
+Extra ability to reclaim only metal wrecks not resurrectable if you start drag above a non resurrectable wreck.
 And only resurrectable wrecks if you start reclaim above a resurrectable wreck.
 
 
@@ -123,7 +123,7 @@ One of the interests of this widget is that sometimes there is a lot of debris s
 With the original widget if you started reclaim above a rock and drag your mouse, it reclaimed every metal things.
 Problem fixed compared to the original version : 
 &nbsp;  
-Now it don't send your rezzers reclaim something impossible in sea or in land : for example land rezzers don't go reclaim something too deep in sea. And rezzers boats don't have a command to suck something in land, wich could happen with the original smart area reclaim version.
+Now it don't send your rezzers reclaim something impossible in sea or in land : for example land rezzers don't go reclaim something too deep in sea. And rezzers boats don't have a command to reclaim something in land, wich could happen with the original smart area reclaim version.
 &nbsp;  
 Youtube link video :  https://youtu.be/i9SBThSTIlw
 &nbsp;  
