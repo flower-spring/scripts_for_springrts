@@ -19,7 +19,7 @@ Original game : https://fr.wikipedia.org/wiki/Total_Annihilation (1997)
 # Widgets
 
 
-## cmd_middle_mouse_button.lua:
+## widget cmd_middle_mouse_button.lua:
 
 <img src="Images_for_scripts_for_springrts/mouse-160032_1280_200.png" alt="mouse-160032_1280" style="zoom: 80%;" />
 
@@ -33,7 +33,7 @@ This widget should avoid camera blocked with only few capacity to move when midd
 
 &nbsp;  
 
-## cmd_selfd_mines_for_some_units.lua:
+## widget cmd_selfd_mines_for_some_units.lua:
 ### Purpose
 
 For months, or rather years I saw some mines sometimes did not explode with BA 9* (or 11). This widget should resolve this.
@@ -63,7 +63,7 @@ Widget tested for a few weeks. No bug found.
 
 &nbsp;  
 
-## cmd_set_specific_targets_for_mercuries_and_screamers.lua:
+## widget cmd_set_specific_targets_for_mercuries_and_screamers.lua:
 
 <img src="Images_for_scripts_for_springrts/image_set_target_for_mercury_liche_widget.png" alt="image_set_target_for_mercury_liche_widget" width="200" />
 
@@ -89,7 +89,7 @@ New version v3 4 oct 2020: if stockpile == 5/5, screamer and/or mercury is (are)
 
 &nbsp;
 
-## cmd_smart_area_reclaim+.lua:
+## widget cmd_smart_area_reclaim+.lua:
 ### Purpose
 
 Extra ability to reclaim only metal wrecks not resurrectable if you start drag above a non resurrectable wreck.
@@ -118,12 +118,13 @@ hold ctrl +reclaim command to reclaim only non resurrectable things : rocks and/
 &nbsp;  
 start hold a reclaim command above a not resurectable wreck and drag your mouse, to reclaim only non resurectable things.
 &nbsp;  
-One of the interests of this widget is that sometimes there is a lot of debris some that you just want to resurect and others only reclaim. With this widget, you do not need to click on each of the units debris that you would only like to reclaim.
+One of the interests of this widget is that sometimes there is a lot of debris some that you just want to resurrect and others only reclaim. With this widget, you do not need to click on each of the units debris that you would only like to reclaim.
 &nbsp;  
 With the original widget if you started reclaim above a rock and drag your mouse, it reclaimed every metal things.
 Problem fixed compared to the original version : 
 &nbsp;  
-Now it don't send your rezzers reclaim something impossible in sea or in land : for example land rezzers don't go reclaim something too deep in sea. And rezzers boats don't have a command to reclaim something in land, wich could happen with the original smart area reclaim version.
+Now it don't send your rezzers reclaim something impossible in sea or in land : for example land rezzers don't go reclaim something too deep in sea. (And rezzers boats don't have a command to reclaim something in land). This behavior could happen with the original smart area reclaim version.
+![](gifs_side_by_side.gif)
 &nbsp;  
 Youtube link video :  https://youtu.be/i9SBThSTIlw
 &nbsp;  
@@ -135,7 +136,7 @@ Maybe this widget could crash. Please inform on discord or on springfiles, if it
 
 &nbsp;  
 
-## cmd_ctrl-x_select_all_units_visibles_of_previous_selection.lua:
+## widget cmd_ctrl-x_select_all_units_visibles_of_previous_selection.lua:
 ### Purpose
 
 For bind ctrl+x : select same units visbles of previous selected units. Wrote for a player.
