@@ -118,7 +118,7 @@ hold ctrl +reclaim command to reclaim only non resurrectable things : rocks and/
 &nbsp;  
 start hold a reclaim command above a not resurectable wreck and drag your mouse, to reclaim only non resurectable things.
 &nbsp;  
-One of the interests of this widget is that sometimes there is a lot of debris some that you just want to resure and others only reclaim. With this widget, you do not need to click on each of the units debris that you would only like to reclaim.
+One of the interests of this widget is that sometimes there is a lot of debris some that you just want to resurect and others only reclaim. With this widget, you do not need to click on each of the units debris that you would only like to reclaim.
 &nbsp;  
 With the original widget if you started reclaim above a rock and drag your mouse, it reclaimed every metal things.
 Problem fixed compared to the original version : 
