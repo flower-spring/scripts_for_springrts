@@ -95,18 +95,6 @@ New version v3 4 oct 2020: if stockpile == 5/5, screamer and/or mercury is (are)
 Extra ability to reclaim only metal wrecks not resurrectable if you start drag above a non resurrectable wreck.
 And only resurrectable wrecks if you start reclaim above a resurrectable wreck.
 
-
-
-&nbsp;<img src="Images_for_scripts_for_springrts/screenshot_for_smart_area_reclaim.png" alt="screenshot_for_smart_area_reclaim" width="200" />
-
-On the illustration image above you could see 3 rezzers with 3 differents orders :
-From the left to the right :
-- one rezzer with a reclaim command started above the ground.
-- one rezzer with a reclaim command started above a resurrectable unit.
-- one rezzer with a reclaim command started above a not resurrectable unit.
-
-
-
 #### New version: 2 august 2021 , ctrl key added: 
 How to use:
 &nbsp;  
@@ -129,9 +117,17 @@ Youtube link video :  https://youtu.be/i9SBThSTIlw
 &nbsp;  
 Please disable original widget smart area reclaim if you use smart area reclaim+.
 &nbsp;  
-Maybe this widget could crash. Please inform on discord or on springfiles, if it crash.
+Usualy when I used this widget it not crashed. Please inform on discord or on springfiles, if it crash.
 
-#### Link : https://github.com/flower-spring/scripts_for_springrts/blob/master/cmd_smart_area_reclaim%2B.lua
+&nbsp;  <img src="Images_for_scripts_for_springrts/screenshot_for_smart_area_reclaim.png" alt="screenshot_for_smart_area_reclaim" width="200" align="left" />
+
+    On this illustration image you could see 3 rezzers with 3 differents orders :
+    From the left to the right :
+    - one rezzer with a reclaim command started above the ground.
+    - one rezzer with a reclaim command started above a resurrectable unit.
+    - one rezzer with a reclaim command started above a not resurrectable unit.
+
+#### Link of widget cmd_smart_area_reclaim+.lua: https://github.com/flower-spring/scripts_for_springrts/blob/master/cmd_smart_area_reclaim%2B.lua
 
 &nbsp;  
 
