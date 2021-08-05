@@ -13,7 +13,7 @@
 
 function widget:GetInfo()
     return {
-        name = "Smart Area Reclaim+",
+        name = "Smart Area Reclaim",
         desc = "Area reclaims only metal or energy depending on the center feature. And only resurrectable or not. With ctrl hold, only non rezzable metal should be sucked",
         author = "aegis, flower. Floris",
         date = "Jun 25, 2010, 2020 and 2021",
@@ -55,14 +55,6 @@ local constructorsAndNanosOfMyPlayerTableAndNecros = { uDefId = 0, maxWaterDepth
 
 local featureResurrectable = {}
 local featureTooltip = {}
-for fDefID, fDef in pairs(FeatureDefs) do
-    if fDef.resurrectable then
-        featureResurrectable[fDefID] = true
-    end
-    if fDef.tooltip then
-        featureTooltip[fDefID] = fDef.tooltip
-    end
-end
 
 local isHovercraft = {}
 local unitBuildDistance = {}
@@ -299,7 +291,7 @@ function widget:CommandNotify(id, params, options)
                         local urx, urz = abs(ux - x), abs(uz - z)
                         local ud = sqrt((urx * urx) + (urz * urz)) - featureRadius * .5
                         local featureDefID = GetFeatureDefID(unitsToRezOrSuckInRectangle[i])
-                        local resurrectable = featureResurrectable[featureDefID]
+                        local resurrectable = FeatureDefs[featureDefID].resurrectable
                         if resurrectable == 0 then
                             isRessurectable = 0
                         else
@@ -365,9 +357,9 @@ function widget:CommandNotify(id, params, options)
                     local uniqIDOriginalOfWhatShouldBeReclaim = 0
                     local featuresInSphereFromGround = Spring.GetFeaturesInSphere(x, y, z, radius)
                     for k, v in pairs(featuresInSphereFromGround) do
-                        local featureDefID = GetFeatureDefID(featuresInSphereFromGround[k])
-                        local resurrectable = featureResurrectable[featureDefID]
-                        local tooltip = featureTooltip[featureDefID]
+                        local featureDefID = Spring.GetFeatureDefID(featuresInSphereFromGround[k])
+                        local resurrectable = FeatureDefs[featureDefID].resurrectable
+                        local tooltip = FeatureDefs[featureDefID].tooltip
                         local wreck_in_tooltip_name = false
                         local heap_in_tooltip_name = false
                         if string.find(tooltip, 'Wreck', nil, true) then
@@ -400,8 +392,9 @@ function widget:CommandNotify(id, params, options)
                             local featureRadius = GetFeatureRadius(uid)
                             local urx, urz = abs(ux - x), abs(uz - z)
                             local ud = sqrt((urx * urx) + (urz * urz)) - featureRadius * .5
-                            local featureDefID = GetFeatureDefID(unitsToRezOrSuckInRectangle[i])
-                            local tooltip = featureTooltip[featureDefID]
+                            local featureDefID = Spring.GetFeatureDefID(unitsToRezOrSuckInRectangle[i])
+                            local resurrectable = FeatureDefs[featureDefID].resurrectable
+                            local tooltip = FeatureDefs[featureDefID].tooltip
                             local wreck_in_tooltip_name = false
                             local heap_in_tooltip_name = false
                             if string.find(tooltip, 'Wreck', nil, true) then
@@ -410,7 +403,7 @@ function widget:CommandNotify(id, params, options)
                             if string.find(tooltip, 'Heap', nil, true) then
                                 heap_in_tooltip_name = true
                             end
-                            if featureResurrectable[featureDefID] == 0 then
+                            if resurrectable == 0 then
                                 isRessurectable = 0
                             else
                                 if wreck_in_tooltip_name then
@@ -449,7 +442,7 @@ function widget:CommandNotify(id, params, options)
                                     if mobiles[uid] then
                                         mList[#mList + 1] = item
                                     elseif stationaries[uid] ~= nil then
-                                        if sqrt((dx * dx) + (dz * dz)) <= stationaries[uid] then
+                                        if sqrt((dx * dx) + (dz * dz)) <= stationaries[uid].buildDistance then
                                             sList[#sList + 1] = item
                                         end
                                     end
