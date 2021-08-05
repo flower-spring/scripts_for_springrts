@@ -13,9 +13,9 @@
 
 function widget:GetInfo()
     return {
-        name = "SmartAreaReclaim+",
+        name = "Smart Area Reclaim+",
         desc = "Area reclaims only metal or energy depending on the center feature. And only resurrectable or not. With ctrl hold, only non rezzable metal should be sucked",
-        author = "aegis, flower",
+        author = "aegis, flower. Floris",
         date = "Jun 25, 2010, 2020 and 2021",
         license = "Public Domain",
         layer = 0,
@@ -34,12 +34,13 @@ local GetFeatureRadius = Spring.GetFeatureRadius
 local GetFeatureResources = Spring.GetFeatureResources
 local spGiveOrderToUnit = Spring.GiveOrderToUnit
 local spGetGroundHeight = Spring.GetGroundHeight
+local GetFeatureDefID = Spring.GetFeatureDefID
 
 local WorldToScreenCoords = Spring.WorldToScreenCoords
 local TraceScreenRay = Spring.TraceScreenRay
 
 local sort = table.sort
-local myGotTeamID = Spring.GetMyTeamID()
+local myTeamID = Spring.GetMyTeamID()
 
 local RECLAIM = CMD.RECLAIM
 local MOVE = CMD.MOVE
@@ -51,32 +52,70 @@ local sqrt = math.sqrt
 local atan2 = math.atan2
 
 local constructorsAndNanosOfMyPlayerTableAndNecros = { uDefId = 0, maxWaterDepth = 0, minWaterDepth = 0 }
+
+local featureResurrectable = {}
+local featureTooltip = {}
+for fDefID, fDef in pairs(FeatureDefs) do
+    if fDef.resurrectable then
+        featureResurrectable[fDefID] = true
+    end
+    if fDef.tooltip then
+        featureTooltip[fDefID] = fDef.tooltip
+    end
+end
+
 local isHovercraft = {}
+local unitBuildDistance = {}
+local unitCanReclaim = {}
+local unitCanMove = {}
+local unitIsBuilder = {}
+local unitIsBuilding = {}
+local unitCanResurrect = {}
+local unitMaxWaterDepth = {}
+local unitMinWaterDepth = {}
+for uDefID, uDef in pairs(UnitDefs) do
+    if uDef.minWaterDepth then
+        unitMinWaterDepth[uDefID] = uDef.minWaterDepth
+    end
+    if uDef.maxWaterDepth then
+        unitMaxWaterDepth[uDefID] = uDef.maxWaterDepth
+    end
+    if uDef.canResurrect then
+        unitCanResurrect[uDefID] = true
+    end
+    if uDef.isBuilding then
+        unitIsBuilding[uDefID] = true
+    end
+    if uDef.isBuilder then
+        unitIsBuilder[uDefID] = true
+    end
+    if uDef.canReclaim then
+        unitCanReclaim[uDefID] = true
+    end
+    if uDef.canMove then
+        unitCanMove[uDefID] = true
+    end
+    if uDef.buildDistance > 0 then
+        unitBuildDistance[uDefID] = uDef.buildDistance
+    end
+    if uDef["modCategories"]["hover"] and not uDef.isFactory then
+        isHovercraft[uDefID] = true
+    end
+end
 
 function widget:Initialize()
     for k, unitID in pairs(Spring.GetAllUnits()) do
-        local uDefId2 = Spring.GetUnitDefID(unitID)
-        if uDefId2 then
-            if ((UnitDefs[uDefId2].isBuilder) and (not UnitDefs[uDefId2].isBuilding)) or UnitDefs[uDefId2].canResurrect then
-                local maxWaterDepth = UnitDefs[uDefId2].maxWaterDepth
-                local minWaterDepth = UnitDefs[uDefId2].minWaterDepth
-                constructorsAndNanosOfMyPlayerTableAndNecros[unitID] = { uDefId = uDefId2, maxWaterDepth = maxWaterDepth, minWaterDepth = minWaterDepth }
-            end
-        end
-    end
-    for uDefId, id in pairs(UnitDefs) do
-        if UnitDefs[uDefId]["modCategories"]["hover"] and (not UnitDefs[uDefId].isFactory) then
-            isHovercraft[uDefId] = uDefId
+        local unitDefID = Spring.GetUnitDefID(unitID)
+        if unitDefID then
+            widget:UnitCreated(unitID, unitDefID, myTeamID)
         end
     end
 end
 
 function widget:UnitCreated(unitID, unitDefID, unitTeam, builderID)
-    if unitTeam == Spring.GetMyTeamID() then
-        if ((UnitDefs[unitDefID].isBuilder) and (not UnitDefs[unitDefID].isBuilding)) or UnitDefs[unitDefID].canResurrect then
-            local maxWaterDepth = UnitDefs[unitDefID].maxWaterDepth
-            local minWaterDepth = UnitDefs[unitDefID].minWaterDepth
-            constructorsAndNanosOfMyPlayerTableAndNecros[unitID] = { uDefId = unitDefID, maxWaterDepth = maxWaterDepth, minWaterDepth = minWaterDepth }
+    if unitTeam == myTeamID then
+        if (unitIsBuilder[unitDefID] and not unitIsBuilding[unitDefID]) or unitCanResurrect[unitDefID] then
+            constructorsAndNanosOfMyPlayerTableAndNecros[unitID] = { uDefId = unitDefID, maxWaterDepth = unitMaxWaterDepth[unitDefID], minWaterDepth = unitMinWaterDepth[unitDefID] }
         end
     end
 end
@@ -86,7 +125,7 @@ function widget:UnitDestroyed(unitID, unitDefID, unitTeam, attackerID, attackerD
 end
 
 function widget:UnitTaken(unitID, unitDefID, _, newTeam)
-    if newTeam == myGotTeamID then
+    if newTeam == myTeamID then
         widget:UnitCreated(unitID, unitDefID)
     else
         widget:UnitDestroyed(unitID, unitDefID)
@@ -94,7 +133,7 @@ function widget:UnitTaken(unitID, unitDefID, _, newTeam)
 end
 
 function widget:UnitGiven(unitID, unitDefID, _, new_team)
-    if new_team == myGotTeamID then
+    if new_team == myTeamID then
         widget:UnitCreated(unitID, unitDefID, new_team)
     end
 end
@@ -104,7 +143,7 @@ local function tsp(reclaimersList, tList, dx, dz)
     dz = dz or 0
     tList = tList or {}
 
-    if (reclaimersList == nil) then
+    if reclaimersList == nil then
         return
     end
 
@@ -114,10 +153,10 @@ local function tsp(reclaimersList, tList, dx, dz)
 
     for i = 1, #reclaimersList do
         local item = reclaimersList[i]
-        if (item ~= nil) and (item ~= 0) then
+        if item ~= nil and item ~= 0 then
             local distx, distz, uid, fid = item[1] - dx, item[2] - dz, item[3], item[4]
             local dist = abs(distx) + abs(distz)
-            if (closestDist == nil) or (dist < closestDist) then
+            if closestDist == nil or dist < closestDist then
                 closestDist = dist
                 closestItem = item
                 closestIndex = i
@@ -125,7 +164,7 @@ local function tsp(reclaimersList, tList, dx, dz)
         end
     end
 
-    if (closestItem == nil) then
+    if closestItem == nil then
         return tList
     end
 
@@ -145,7 +184,7 @@ local function stationary(reclaimersList)
         local dx, dz = item[1], item[2]
 
         local theta = atan2(dx, dz)
-        if (lastKey ~= theta) then
+        if lastKey ~= theta then
             sKeys[#sKeys + 1] = theta
             lastItem = { item }
             sList[theta] = lastItem
@@ -177,7 +216,7 @@ local function issue(reclaimersList, shift, groundHeightAtFeaturePos)
         local udefId = GetUnitDefID(uid)
         if udefId and groundHeight4 and constructorsAndNanosOfMyPlayerTableAndNecros[uid] and constructorsAndNanosOfMyPlayerTableAndNecros[uid].maxWaterDepth and constructorsAndNanosOfMyPlayerTableAndNecros[uid].minWaterDepth and (((-(constructorsAndNanosOfMyPlayerTableAndNecros[uid].maxWaterDepth) <= groundHeight4) and (groundHeight4 < abs(constructorsAndNanosOfMyPlayerTableAndNecros[uid].minWaterDepth))) or isHovercraft[udefId]) then
             local opt = {}
-            if (opts[uid] ~= nil) or (shift) then
+            if opts[uid] ~= nil or shift then
                 opt = OPT_SHIFT
             end
             spGiveOrderToUnit(uid, RECLAIM, { fid + maxUnits }, opt)
@@ -192,10 +231,10 @@ local function issue2(reclaimersList, shift)
         local item = reclaimersList[i]
         local uid, fid = item[3], item[4]
         local opt = {}
-        if (opts[uid] ~= nil) or (shift) then
+        if opts[uid] ~= nil or shift then
             opt = OPT_SHIFT
         end
-        local bpx, bpy, bpz = Spring.GetFeaturePosition(fid)
+        local bpx, bpy, bpz = GetFeaturePosition(fid)
         spGiveOrderToUnit(uid, ATTACK, { bpx + 1, bpy, bpz + 1 }, opt)
         spGiveOrderToUnit(uid, ATTACK, { bpx + 16, bpy + 1, bpz + 16 }, opt)
         opts[uid] = 1
@@ -206,7 +245,7 @@ include("keysym.h.lua")
 
 function widget:CommandNotify(id, params, options)
     local CtrlOrNot = Spring.GetKeyState(KEYSYMS.LCTRL)
-    if (id == RECLAIM) then
+    if id == RECLAIM then
         local mobiles, stationaries = {}, {}
         local mobileBuilder, stationaryBuilder = false, false
         local rezzers = {}
@@ -214,21 +253,20 @@ function widget:CommandNotify(id, params, options)
         for i = 1, #selectedUnits do
             local selectedUnitsIDs = selectedUnits[i]
             local udid = GetUnitDefID(selectedUnitsIDs)
-            local unitDef = UnitDefs[udid]
-            if (unitDef.canReclaim == true) then
-                if (unitDef.canMove == false) then
-                    stationaries[selectedUnitsIDs] = unitDef
+            if unitCanReclaim[udid] then
+                if not unitCanMove[udid] then
+                    stationaries[selectedUnitsIDs] = unitBuildDistance[udid]
                     stationaryBuilder = true
                 else
-                    mobiles[selectedUnitsIDs] = unitDef
+                    mobiles[selectedUnitsIDs] = true
                     mobileBuilder = true
                 end
                 local ux, uy, uz = GetUnitPosition(selectedUnitsIDs)
-                if (options.shift) then
+                if options.shift then
                     local cmds = GetUnitCommands(selectedUnitsIDs, 100)
                     for ci = #cmds, 1, -1 do
                         local cmd = cmds[ci]
-                        if (cmd.id == MOVE) then
+                        if cmd.id == MOVE then
                             ux, uy, uz = cmd.params[1], cmd.params[2], cmd.params[3]
                             break
                         end
@@ -238,42 +276,42 @@ function widget:CommandNotify(id, params, options)
             end
         end
 
-        if (#rezzers > 0) then
+        if #rezzers > 0 then
             local len = #params
             local ret = {}
             local rmt = {}
-            if (len == 4) then
+            if len == 4 then
                 local x, y, z, radius = params[1], params[2], params[3], params[4]
                 local xmin, xmax, zmin, zmax = (x - radius), (x + radius), (z - radius), (z + radius)
                 local rx, rz = (xmax - xmin), (zmax - zmin)
                 local unitsToRezOrSuckInRectangle = GetFeaturesInRectangle(xmin, zmin, xmax, zmax)
                 local mouseX, mousey, mousez = WorldToScreenCoords(x, y, z)
                 local ct, id = TraceScreenRay(mouseX, mousey)
-                if (ct == "feature") then
+                if ct == "feature" then
                     local uniqueIDOfWhatShouldBeToReclaim = id
                     local isRessurectable = 2
-                    local featureDefuniqueIDOfWhatShouldBeToReclaim = Spring.GetFeatureDefID(uniqueIDOfWhatShouldBeToReclaim)
-                    local isResurractble = FeatureDefs[featureDefuniqueIDOfWhatShouldBeToReclaim].resurrectable
+                    local featureDefuniqueIDOfWhatShouldBeToReclaim = GetFeatureDefID(uniqueIDOfWhatShouldBeToReclaim)
+                    local isResurractble = featureResurrectable[featureDefuniqueIDOfWhatShouldBeToReclaim]
                     for i = 1, #unitsToRezOrSuckInRectangle, 1 do
                         local uid = unitsToRezOrSuckInRectangle[i]
                         local ux, _, uz = GetFeaturePosition(uid)
                         local featureRadius = GetFeatureRadius(uid)
                         local urx, urz = abs(ux - x), abs(uz - z)
                         local ud = sqrt((urx * urx) + (urz * urz)) - featureRadius * .5
-                        local featureDefID = Spring.GetFeatureDefID(unitsToRezOrSuckInRectangle[i])
-                        local resurrectable = FeatureDefs[featureDefID].resurrectable
+                        local featureDefID = GetFeatureDefID(unitsToRezOrSuckInRectangle[i])
+                        local resurrectable = featureResurrectable[featureDefID]
                         if resurrectable == 0 then
                             isRessurectable = 0
                         else
                             isRessurectable = 1
                         end
-                        if (ud < radius) then
+                        if ud < radius then
                             local mr, _, er, _, _ = GetFeatureResources(uid)
-                            if (mr > 0) and isRessurectable == 0 and isResurractble == 0 then
+                            if mr > 0 and isRessurectable == 0 and isResurractble == 0 then
                                 rmt[#rmt + 1] = uid
-                            elseif (mr > 0) and isRessurectable == 1 and isResurractble == -1 then
+                            elseif mr > 0 and isRessurectable == 1 and isResurractble == -1 then
                                 rmt[#rmt + 1] = uid
-                            elseif (er > 0) then
+                            elseif er > 0 then
                                 ret[#ret + 1] = uid
                             end
                         end
@@ -282,61 +320,63 @@ function widget:CommandNotify(id, params, options)
                     local mr, _, er, _, _ = GetFeatureResources(uniqueIDOfWhatShouldBeToReclaim)
                     local mList, sList = {}, {}
                     local source = {}
-                    if (#rmt > 0) and (mr > 0) then
+                    if #rmt > 0 and mr > 0 then
 
                         source = rmt
-                    elseif (#ret > 0) and (er > 0) then
+                    elseif #ret > 0 and er > 0 then
                         source = ret
                     end
-                    local fx, _, fz
+                    local fx, fz
                     for i = 1, #source do
                         local fid = source[i]
-                        if (fid ~= nil) then
+                        if fid ~= nil then
                             fx, _, fz = GetFeaturePosition(fid)
                             for ui = 1, #rezzers do
                                 local unit = rezzers[ui]
                                 local uid, ux, uz = unit.uid, unit.ux, unit.uz
                                 local dx, dz = ux - fx, uz - fz
                                 local item = { dx, dz, uid, fid, fx, fz }
-                                if (mobiles[uid] ~= nil) then
+                                if mobiles[uid] then
                                     mList[#mList + 1] = item
-                                elseif (stationaries[uid] ~= nil) then
-                                    if (sqrt((dx * dx) + (dz * dz)) <= stationaries[uid].buildDistance) then
+                                elseif stationaries[uid] ~= nil then
+                                    if sqrt((dx * dx) + (dz * dz)) <= stationaries[uid] then
                                         sList[#sList + 1] = item
                                     end
                                 end
                             end
                         end
                     end
-                    local groundHeightAtFeaturePos = spGetGroundHeight(fx, fz)
                     local issued = false
-                    if (mobileBuilder == true) then
-                        mList = tsp(mList)
-                        issue(mList, options.shift, groundHeightAtFeaturePos)
-                        issued = true
-                    end
-                    if (stationaryBuilder == true) then
-                        sList = stationary(sList)
-                        issue(sList, options.shift, groundHeightAtFeaturePos)
-                        issued = true
+                    if fx then
+                        local groundHeightAtFeaturePos = spGetGroundHeight(fx, fz)
+                        if mobileBuilder == true then
+                            mList = tsp(mList)
+                            issue(mList, options.shift, groundHeightAtFeaturePos)
+                            issued = true
+                        end
+                        if stationaryBuilder == true then
+                            sList = stationary(sList)
+                            issue(sList, options.shift, groundHeightAtFeaturePos)
+                            issued = true
+                        end
                     end
                     return issued
-                elseif (ct == "ground") and (CtrlOrNot) then
+                elseif ct == "ground" and CtrlOrNot then
                     local uniqIDOriginalOfWhatShouldBeReclaim = 0
                     local featuresInSphereFromGround = Spring.GetFeaturesInSphere(x, y, z, radius)
                     for k, v in pairs(featuresInSphereFromGround) do
-                        local featureDefID = Spring.GetFeatureDefID(featuresInSphereFromGround[k])
-                        local resurrectable = FeatureDefs[featureDefID].resurrectable
-                        local tooltip = FeatureDefs[featureDefID].tooltip
+                        local featureDefID = GetFeatureDefID(featuresInSphereFromGround[k])
+                        local resurrectable = featureResurrectable[featureDefID]
+                        local tooltip = featureTooltip[featureDefID]
                         local wreck_in_tooltip_name = false
                         local heap_in_tooltip_name = false
-                        if (string.find(tooltip, 'Wreck', nil, true)) then
+                        if string.find(tooltip, 'Wreck', nil, true) then
                             wreck_in_tooltip_name = true
                         end
-                        if (string.find(tooltip, 'Heap', nil, true)) then
+                        if string.find(tooltip, 'Heap', nil, true) then
                             heap_in_tooltip_name = true
                         end
-                        if (resurrectable == -1) and (wreck_in_tooltip_name == false) then
+                        if resurrectable == -1 and wreck_in_tooltip_name == false then
                             local mr, _, er, _, _ = GetFeatureResources(v)
                             if mr > 0 then
                                 uniqIDOriginalOfWhatShouldBeReclaim = v
@@ -360,18 +400,17 @@ function widget:CommandNotify(id, params, options)
                             local featureRadius = GetFeatureRadius(uid)
                             local urx, urz = abs(ux - x), abs(uz - z)
                             local ud = sqrt((urx * urx) + (urz * urz)) - featureRadius * .5
-                            local featureDefID = Spring.GetFeatureDefID(unitsToRezOrSuckInRectangle[i])
-                            local resurrectable = FeatureDefs[featureDefID].resurrectable
-                            local tooltip = FeatureDefs[featureDefID].tooltip
+                            local featureDefID = GetFeatureDefID(unitsToRezOrSuckInRectangle[i])
+                            local tooltip = featureTooltip[featureDefID]
                             local wreck_in_tooltip_name = false
                             local heap_in_tooltip_name = false
-                            if (string.find(tooltip, 'Wreck', nil, true)) then
+                            if string.find(tooltip, 'Wreck', nil, true) then
                                 wreck_in_tooltip_name = true
                             end
-                            if (string.find(tooltip, 'Heap', nil, true)) then
+                            if string.find(tooltip, 'Heap', nil, true) then
                                 heap_in_tooltip_name = true
                             end
-                            if resurrectable == 0 then
+                            if featureResurrectable[featureDefID] == 0 then
                                 isRessurectable = 0
                             else
                                 if wreck_in_tooltip_name then
@@ -380,11 +419,11 @@ function widget:CommandNotify(id, params, options)
                                     isRessurectable = 0
                                 end
                             end
-                            if (ud < radius) then
+                            if ud < radius then
                                 local mr, _, er, _, _ = GetFeatureResources(uid)
-                                if (mr > 0) and isRessurectable == 0 then
+                                if mr > 0 and isRessurectable == 0 then
                                     rmt[#rmt + 1] = uid
-                                elseif (er > 0) then
+                                elseif er > 0 then
                                     ret[#ret + 1] = uid
                                 end
                             end
@@ -393,42 +432,44 @@ function widget:CommandNotify(id, params, options)
                         local mr, _, er, _, _ = GetFeatureResources(uniqIDOriginalOfWhatShouldBeReclaim)
                         local mList, sList = {}, {}
                         local source = {}
-                        if (#rmt > 0) and (mr > 0) then
+                        if #rmt > 0 and mr > 0 then
                             source = rmt
-                        elseif (#ret > 0) and (er > 0) then
+                        elseif #ret > 0 and er > 0 then
                         end
                         local fx, _, fz
                         for i = 1, #source do
                             local fid = source[i]
-                            if (fid ~= nil) then
+                            if fid ~= nil then
                                 fx, _, fz = GetFeaturePosition(fid)
                                 for ui = 1, #rezzers do
                                     local unit = rezzers[ui]
                                     local uid, ux, uz = unit.uid, unit.ux, unit.uz
                                     local dx, dz = ux - fx, uz - fz
                                     local item = { dx, dz, uid, fid, fx, fz }
-                                    if (mobiles[uid] ~= nil) then
+                                    if mobiles[uid] then
                                         mList[#mList + 1] = item
-                                    elseif (stationaries[uid] ~= nil) then
-                                        if (sqrt((dx * dx) + (dz * dz)) <= stationaries[uid].buildDistance) then
+                                    elseif stationaries[uid] ~= nil then
+                                        if sqrt((dx * dx) + (dz * dz)) <= stationaries[uid] then
                                             sList[#sList + 1] = item
                                         end
                                     end
                                 end
                             end
                         end
-                        local groundHeightAtFeaturePos = spGetGroundHeight(fx, fz)
                         local issued = false
-                        if (mobileBuilder == true) then
-                            mList = tsp(mList)
-                            issue(mList, options.shift, groundHeightAtFeaturePos)
-                            issued = true
-                        end
+                        if fx then
+                            local groundHeightAtFeaturePos = spGetGroundHeight(fx, fz)
+                            if mobileBuilder == true then
+                                mList = tsp(mList)
+                                issue(mList, options.shift, groundHeightAtFeaturePos)
+                                issued = true
+                            end
 
-                        if (stationaryBuilder == true) then
-                            sList = stationary(sList)
-                            issue(sList, options.shift, groundHeightAtFeaturePos)
-                            issued = true
+                            if stationaryBuilder == true then
+                                sList = stationary(sList)
+                                issue(sList, options.shift, groundHeightAtFeaturePos)
+                                issued = true
+                            end
                         end
                         return issued
                     end

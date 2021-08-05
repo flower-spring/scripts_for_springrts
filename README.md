@@ -128,6 +128,13 @@ Usualy when I used this widget it not crashed. Please inform on discord or on sp
     - one rezzer with a reclaim command started above a resurrectable unit.
     - one rezzer with a reclaim command started above a not resurrectable unit.
 
+#### Widget updated August 5, 2021
+Changes:
+- One nil check added.
+- Some improvements.
+&nbsp;   
+&nbsp;   
+
 #### Link of widget cmd_smart_area_reclaim+.lua: https://github.com/flower-spring/scripts_for_springrts/blob/master/cmd_smart_area_reclaim%2B.lua
 
 &nbsp;  
