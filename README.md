@@ -1,25 +1,28 @@
-# 5 widgets for springrts (2 of these 5 have different versions. 7 widgets in total)
+# 5 widgets for springrts (2 of these 5 have different versions. 7 widgets in total
+Widget n°1: cmd_middle_mouse_button.lua&nbsp;  
+Widget n°2: cmd_selfd_mines_for_some_units.lua&nbsp;  
+Widget n°3:  cmd_set_specific_targets_for_mercuries_and_screamers.lua&nbsp;  
+Widget n°4: cmd_smart_area_reclaim+.lua&nbsp;  
+Widget n°5: cmd_ctrl-x_select_all_units_visibles_of_previous_selection.lua
 
 ![figurative-5301719_1920_resized2](Images_for_scripts_for_springrts/figurative-5301719_1920_resized2.jpg)
 
 Original game : https://fr.wikipedia.org/wiki/Total_Annihilation (1997)
 
-1 engine, multiples mods.
+1 engine, multiples mods
 
 
-| Spring RTS Engine : https://springrts.com/                   | ![spring-logo-header-small](Images_for_scripts_for_springrts/spring-logo-header-small.png) |
+| Spring RTS engine : https://springrts.com/                   | ![spring-logo-header-small](Images_for_scripts_for_springrts/spring-logo-header-small.png) |
 | ------------------------------------------------------------ | :----------------------------------------------------------- |
 | Mod looking like total annihilation https://balancedannihilation.com/ | <img src="Images_for_scripts_for_springrts/balanced_annihilation_image.png" alt="balanced_annihilation_image.png" style="zoom: 50%;" /> |
 | Another mod https://www.beyondallreason.info/                | <img src="Images_for_scripts_for_springrts/bar_logo.png" alt="bar_logo.png" style="zoom: 50%;" /> |
 
 
 
-
-
 # Widgets
 
 
-## widget cmd_middle_mouse_button.lua:
+## Widget n°1: cmd_middle_mouse_button.lua:
 
 <img src="Images_for_scripts_for_springrts/mouse-160032_1280_200.png" alt="mouse-160032_1280" style="zoom: 80%;" />
 
@@ -33,7 +36,7 @@ This widget should avoid camera blocked with only few capacity to move when midd
 
 &nbsp;  
 
-## widget cmd_selfd_mines_for_some_units.lua:
+## Widget n°2: cmd_selfd_mines_for_some_units.lua:
 ### Purpose
 
 For months, or rather years I saw some mines sometimes did not explode with BA 9* (or 11). This widget should resolve this.
@@ -63,7 +66,7 @@ Widget tested for a few weeks. No bug found.
 
 &nbsp;  
 
-## widget cmd_set_specific_targets_for_mercuries_and_screamers.lua:
+## Widget n°3: cmd_set_specific_targets_for_mercuries_and_screamers.lua:
 
 <img src="Images_for_scripts_for_springrts/image_set_target_for_mercury_liche_widget.png" alt="image_set_target_for_mercury_liche_widget" width="200" />
 
@@ -89,7 +92,7 @@ New version v3 4 oct 2020: if stockpile == 5/5, screamer and/or mercury is (are)
 
 &nbsp;
 
-## widget cmd_smart_area_reclaim+.lua:
+## Widget n°4: cmd_smart_area_reclaim+.lua:
 ### Purpose
 
 Extra ability to reclaim only metal wrecks not resurrectable if you start drag above a non resurrectable wreck.
@@ -139,7 +142,7 @@ Changes:
 
 &nbsp;  
 
-## widget cmd_ctrl-x_select_all_units_visibles_of_previous_selection.lua:
+## Widget n°5: cmd_ctrl-x_select_all_units_visibles_of_previous_selection.lua:
 ### Purpose
 
 For bind ctrl+x : select same units visbles of previous selected units. Wrote for a player.
