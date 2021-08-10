@@ -1,4 +1,4 @@
-# 5 widgets for springrts (2 of these 5 have different versions. 7 widgets in total
+# 5 widgets for springrts (2 of these 5 have different versions). (7 widgets in total.)
 Widget n°1: cmd_middle_mouse_button.lua&nbsp;  
 Widget n°2: cmd_selfd_mines_for_some_units.lua&nbsp;  
 Widget n°3:  cmd_set_specific_targets_for_mercuries_and_screamers.lua&nbsp;  
