@@ -217,22 +217,6 @@ local function issue(reclaimersList, shift, groundHeightAtFeaturePos)
     end
 end
 
-local function issue2(reclaimersList, shift)
-    local opts = {}
-    for i = 1, #reclaimersList do
-        local item = reclaimersList[i]
-        local uid, fid = item[3], item[4]
-        local opt = {}
-        if opts[uid] ~= nil or shift then
-            opt = OPT_SHIFT
-        end
-        local bpx, bpy, bpz = GetFeaturePosition(fid)
-        spGiveOrderToUnit(uid, ATTACK, { bpx + 1, bpy, bpz + 1 }, opt)
-        spGiveOrderToUnit(uid, ATTACK, { bpx + 16, bpy + 1, bpz + 16 }, opt)
-        opts[uid] = 1
-    end
-end
-
 include("keysym.h.lua")
 
 function widget:CommandNotify(id, params, options)
@@ -365,7 +349,7 @@ function widget:CommandNotify(id, params, options)
                         if string.find(tooltip, 'Wreck', nil, true) then
                             wreck_in_tooltip_name = true
                         end
-                        if string.find(tooltip, 'Heap', nil, true) then
+                        if string.find(tooltip, 'Heap', nil, true) or string.find(tooltip, 'Debris', nil, true) then
                             heap_in_tooltip_name = true
                         end
                         if resurrectable == -1 and wreck_in_tooltip_name == false then

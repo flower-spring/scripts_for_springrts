@@ -114,7 +114,8 @@ One of the interests of this widget is that sometimes there is a lot of debris s
 With the original widget if you started reclaim above a rock and drag your mouse, it reclaimed every metal things.&nbsp;  
 Problem fixed compared to the original version : 
 &nbsp;  
-Now it don't send your rezzers reclaim something impossible in sea or in land : for example land rezzers don't go reclaim something too deep in sea. (And rezzers boats don't have a command to reclaim something in land). This behavior could happen with the original smart area reclaim version.
+Now it don't send your rezzers reclaim something impossible in sea or in land : for example land rezzers don't go reclaim something too deep in sea. (And rezzers boats don't have a command to reclaim something in land). This behavior could happen with the original smart area reclaim version.&nbsp;  
+#### Gif animation about smart area reclaim widget:
 ![](animated.png)
 &nbsp;  
 Youtube link video :  https://youtu.be/i9SBThSTIlw
