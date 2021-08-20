@@ -150,10 +150,10 @@ For bind ctrl+x : select same units visbles of previous selected units. Wrote fo
 
 &nbsp;  
 
-# Installation of these widgets on a standard computer
-## Installation under windows
+# Installation of these widgets
+## Installation with windows
 If you are under windows, you should put them in C:\Users\your_current_account_name\Documents\My Games\Spring\LuaUI\Widgets
-## Installation under linux
+## Installation with linux
 If you are under linux, I'm unsure, but I think you should put downloaded widget(s) in ~./spring/LuaUI/Widgets
 
 ## Verification of the installation
