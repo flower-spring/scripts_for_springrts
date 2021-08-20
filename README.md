@@ -95,7 +95,7 @@ New version v3 4 oct 2020: if stockpile == 5/5, screamer and/or mercury is (are)
 ## Widget n°4: cmd_smart_area_reclaim+.lua:
 ### Purpose
 
-Extra ability to reclaim only metal wrecks not resurrectable if you start drag above a non resurrectable wreck.
+Extra ability to reclaim only metal wrecks not resurrectable if you start drag above a non resurrectable wreck, or if you hold ctrl with a reclaim command (functionality added in august 2021 version).
 And only resurrectable wrecks if you start reclaim above a resurrectable wreck.
 
 #### New version: 2 august 2021 , ctrl key added: 
