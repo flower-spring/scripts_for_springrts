@@ -114,16 +114,15 @@ One of the interests of this widget is that sometimes there is a lot of debris s
 With the original widget if you started reclaim above a rock and drag your mouse, it reclaimed every metal things.&nbsp;  
 Problem fixed compared to the original version : 
 &nbsp;  
-Now it don't send your rezzers reclaim something impossible in sea or in land : for example land rezzers don't go reclaim something too deep in sea. (And rezzers boats don't have a command to reclaim something in land). This behavior could happen with the original smart area reclaim version.&nbsp;  
+Now it don't send your rezzers reclaim something impossible in sea or in land : for example land rezzers don't go reclaim something too deep in sea. (And rezzers boats don't have a command to reclaim something in land). This behavior could happen with the original smart area reclaim version. &nbsp;  
+Please disable original widget smart area reclaim if you use smart area reclaim+.
+&nbsp;  
+Usualy when I used this widget it not crashed. Please inform on discord or on springfiles, if it crash.&nbsp;  
 #### Gif animation about smart area reclaim widget:
 ![](animated.png)
 &nbsp;  
-Youtube link video :  https://youtu.be/i9SBThSTIlw
-&nbsp;  
-Please disable original widget smart area reclaim if you use smart area reclaim+.
-&nbsp;  
-Usualy when I used this widget it not crashed. Please inform on discord or on springfiles, if it crash.
-
+#### Another video :  https://youtu.be/i9SBThSTIlw
+#### Illustration image
 &nbsp;  <img src="Images_for_scripts_for_springrts/screenshot_for_smart_area_reclaim.png" alt="screenshot_for_smart_area_reclaim" width="200" align="left" />
 
     On this illustration image you could see 3 rezzers with 3 differents orders :
@@ -133,11 +132,9 @@ Usualy when I used this widget it not crashed. Please inform on discord or on sp
     - one rezzer with a reclaim command started above a not resurrectable unit.
 
 #### Widget updated August 5, 2021
-Changes:
-- One nil check added.
-- Some improvements.
-&nbsp;   
-&nbsp;   
+Changes: One nil check added. Some speed improvements.
+#### Widget updated August 20, 2021
+Changes: Widget was not completly functionnal with bar (beyond all reason), cause heaps are called debris, and were not recognized/reclaimed (rocks were reclaimed anyway from what I remenber).
 
 #### Link of widget cmd_smart_area_reclaim+.lua: https://github.com/flower-spring/scripts_for_springrts/blob/master/cmd_smart_area_reclaim%2B.lua
 
