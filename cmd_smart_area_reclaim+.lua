@@ -263,7 +263,7 @@ function widget:CommandNotify(id, params, options)
                 local unitsToRezOrSuckInRectangle = GetFeaturesInRectangle(xmin, zmin, xmax, zmax)
                 local mouseX, mousey, mousez = WorldToScreenCoords(x, y, z)
                 local ct, id = TraceScreenRay(mouseX, mousey)
-                if ct == "feature" then
+                if ct == "feature" and (not CtrlOrNot) then
                     local uniqueIDOfWhatShouldBeToReclaim = id
                     local isRessurectable = 2
                     local featureDefuniqueIDOfWhatShouldBeToReclaim = GetFeatureDefID(uniqueIDOfWhatShouldBeToReclaim)
@@ -337,7 +337,7 @@ function widget:CommandNotify(id, params, options)
                         end
                     end
                     return issued
-                elseif ct == "ground" and CtrlOrNot then
+                elseif (ct == "ground" and CtrlOrNot) or (ct == "feature" and CtrlOrNot) then
                     local uniqIDOriginalOfWhatShouldBeReclaim = 0
                     local featuresInSphereFromGround = Spring.GetFeaturesInSphere(x, y, z, radius)
                     for k, v in pairs(featuresInSphereFromGround) do
@@ -345,12 +345,12 @@ function widget:CommandNotify(id, params, options)
                         local resurrectable = FeatureDefs[featureDefID].resurrectable
                         local tooltip = FeatureDefs[featureDefID].tooltip
                         local wreck_in_tooltip_name = false
-                        local heap_in_tooltip_name = false
+                        local heap_or_debris_in_tooltip_name = false
                         if string.find(tooltip, 'Wreck', nil, true) then
                             wreck_in_tooltip_name = true
                         end
                         if string.find(tooltip, 'Heap', nil, true) or string.find(tooltip, 'Debris', nil, true) then
-                            heap_in_tooltip_name = true
+                            heap_or_debris_in_tooltip_name = true
                         end
                         if resurrectable == -1 and wreck_in_tooltip_name == false then
                             local mr, _, er, _, _ = GetFeatureResources(v)
@@ -358,7 +358,7 @@ function widget:CommandNotify(id, params, options)
                                 uniqIDOriginalOfWhatShouldBeReclaim = v
                             end
                         end
-                        if heap_in_tooltip_name then
+                        if heap_or_debris_in_tooltip_name then
                             local mr, _, er, _, _ = GetFeatureResources(v)
                             if mr > 0 then
                                 uniqIDOriginalOfWhatShouldBeReclaim = v
@@ -380,12 +380,12 @@ function widget:CommandNotify(id, params, options)
                             local resurrectable = FeatureDefs[featureDefID].resurrectable
                             local tooltip = FeatureDefs[featureDefID].tooltip
                             local wreck_in_tooltip_name = false
-                            local heap_in_tooltip_name = false
+                            local heap_or_debris_in_tooltip_name = false
                             if string.find(tooltip, 'Wreck', nil, true) then
                                 wreck_in_tooltip_name = true
                             end
-                            if string.find(tooltip, 'Heap', nil, true) then
-                                heap_in_tooltip_name = true
+                            if string.find(tooltip, 'Heap', nil, true) or string.find(tooltip, 'Debris', nil, true) then
+                                heap_or_debris_in_tooltip_name = true
                             end
                             if resurrectable == 0 then
                                 isRessurectable = 0
