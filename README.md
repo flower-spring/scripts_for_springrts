@@ -135,6 +135,9 @@ Usualy when I used this widget it not crashed. Please inform on discord or on sp
 Changes: One nil check added. Some speed improvements.
 #### Widget updated August 20, 2021
 Changes: Widget was not completly functionnal with bar (beyond all reason), cause heaps are called debris, and were not recognized/reclaimed (rocks were reclaimed anyway from what I remenber).
+#### Widget updated December 21, 2021
+- sea debris added for aircraft, like hovercrcafts, cause aircrafts can reclaim metal in sea.
+- widget upadted cause after a byar update (in dec 2021 probably), wreck info was not anymore present in tooltip description and so the widget was no more functionnal
 
 #### Link of widget cmd_smart_area_reclaim+.lua: https://github.com/flower-spring/scripts_for_springrts/blob/master/cmd_smart_area_reclaim%2B.lua
 
